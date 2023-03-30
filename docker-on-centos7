@@ -1,0 +1,24 @@
+*****If you are on this page, you are reading documentaion directing how you can download and install docker on a centos7 server*****
+
+# It's important to clean up the system. This way, old versions of docker, if applicable, are removed so that a newer version is installed.
+  sudo yum remove docker docker-client docker-client-latest docker-common docker-latest docker-latest-logrotate docker-logrotate docker-engine
+
+# Setting up docker repository: run these commands one at a time.
+  sudo yum install -y yum-utils
+  sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+
+# Installing docker. You might want to install a particular version, but the command below will get docker's latest image installed
+  sudo yum instaall docker-ce docker-ce-cli containerd.io
+
+# Check docker status
+  sudo systemctl status docker
+
+# You might want to get docker daemon started, in case it is not up and running.
+  sudo systemctl start docker 
+
+# Now enable docker daemon
+  sudo systemctl enable docker
+
+# You need to be sure docker daemon is up and running, if docker application container engine is loaded, enabled.
+  sudo systemctl status docker
+  
